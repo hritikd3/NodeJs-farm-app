@@ -3,26 +3,32 @@ const fs = require("fs");
 const http = require("http");
 
 
-const overview=fs.readFileSync(`${__dirname}/base/overview.html`, 'utf-8')
-const product=fs.readFileSync(`${__dirname}/base/product.html`, 'utf-8')
-const card=fs.readFileSync(`${__dirname}/base/card.html`, 'utf-8')
-const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, "utf-8");
+const overview=fs.readFileSync(`${__dirname}/overview.html`, 'utf-8')
+const product=fs.readFileSync(`${__dirname}/product.html`, 'utf-8')
+const cards=fs.readFileSync(`${__dirname}/card.html`, 'utf-8')
+const data = fs.readFileSync(`./api/data.json`, "utf-8");
 
-const objData = JSON.parse(data);
+const objData = JSON.parse(data); //objData contains the array of object coming from api
 
 
 //overview page 
 const server = http.createServer((req, res) => {
   const pathName = req.url;
   if (pathName === "/" || pathName === "/overview") {
-    res.end("this is the OVERVIEW");
+ const cardsTemp= objData.map((el)=> replaceCards(,el))  // replaceCards is a function 
+
+
+    res.end(overview);
 
     //product page 
   } else if (pathName === "/product") {
-    res.end("this is PRODUCT    ");
+     res.writeHead(200, {
+       "Content-type": "text/html"})
+     
+       res.end("this is PRODUCT    ");
 
     //api
-  } else if (pathName === "/api") {
+  }else if (pathName === "/api") {
     res.writeHead(200, {
       "Content-type": "application/json",
     }),
@@ -38,6 +44,6 @@ const server = http.createServer((req, res) => {
   }
 });
 //it takes port and ip adreess as parameter
-server.listen(8000, "127.0.0.1", () => {
+server.listen(5500, "127.0.0.1", () => {
   console.log("port is listening ");
 });
