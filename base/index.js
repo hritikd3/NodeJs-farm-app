@@ -3,9 +3,11 @@ const fs = require("fs");
 const http = require("http");
 
 
-const 
-
+const overview=fs.readFileSync(`${__dirname}/base/overview.html`, 'utf-8')
+const product=fs.readFileSync(`${__dirname}/base/product.html`, 'utf-8')
+const card=fs.readFileSync(`${__dirname}/base/card.html`, 'utf-8')
 const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, "utf-8");
+
 const objData = JSON.parse(data);
 
 
