@@ -12,7 +12,7 @@
   },
   {
     "id": 1,
-    "productName": "Goat and Sheep Cheese",
+    "productName": "Fresh Cheese",
     "image": "🧀",
     "from": "Portugal",
     "nutrients": "Vitamin A, Calcium",
@@ -45,7 +45,7 @@
   },
   {
     "id": 4,
-    "productName": "Sweet Corncobs",
+    "productName": "Sweet Corn   ",
     "image": "🌽",
     "from": "Germany",
     "nutrients": "Vitamin C, Magnesium",
