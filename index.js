@@ -14,7 +14,7 @@ const tempProduct = fs.readFileSync(`${__dirname}/base/product.html`, "utf-8");
 const data = fs.readFileSync(`${__dirname}/api/data.json`, "utf-8");
 const dataObj = JSON.parse(data); //objData contains the array of object coming from api
 
-const slugs = dataObj.map((el) => slugify(el.productName, { lower: true })); //slugify helps in making the string more readable we use it for url address 
+const slugs = dataObj.map((el) => slugify(el.productName, { lower: true })); //slugify helps in making the string more readable we use it for url address `8
 console.log(slugs);
 
 
@@ -56,7 +56,7 @@ const server = http.createServer((req, res) => {
 
     // Not found
   } else {
-    res.writeHead(404, {
+    res.writeH5ead(404, {
       "Content-type": "text/html",
       "my-own-header": "hello-world",
     });
@@ -67,3 +67,4 @@ const server = http.createServer((req, res) => {
 server.listen(5500, "127.0.0.1", () => {
   console.log("Listening to requests on port 5500");
 });
+ 5
