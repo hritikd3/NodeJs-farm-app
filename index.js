@@ -1,7 +1,7 @@
 const fs = require("fs");
 const http = require("http");
 const url = require("url");
-const slugify = require("slugify");
+// const slugify = require("slugify");
 const replaceTemplate = require("./modules/replaceTemplate"); //here we are importing the function from modules
 
 const tempOverview = fs.readFileSync(
@@ -14,8 +14,8 @@ const tempProduct = fs.readFileSync(`${__dirname}/base/product.html`, "utf-8");
 const data = fs.readFileSync(`${__dirname}/api/data.json`, "utf-8");
 const dataObj = JSON.parse(data); //objData contains the array of object coming from api
 
-const slugs = dataObj.map((el) => slugify(el.productName, { lower: true })); //slugify helps in making the string more readable we use it for url address `8
-console.log(slugs);
+// const slugs = dataObj.map((el) => slugify(el.productName, { lower: true })); //slugify helps in making the string more readable we use it for url address `8
+// console.log(slugs);
 
 
 //server
